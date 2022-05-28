@@ -46,7 +46,7 @@ grand_ma_and_daughter(X,Y) :- woman(Y), woman(X), (grand_ma(X,Y);grand_ma(Y,X)).
 minDigitUp(0,9) :- !.
 minDigitUp(X,Digit) :- X1 is X div 10, minDigitUp(X1,Dig1), Dig2 is X mod 10, (Dig1 < Dig2, Digit is Dig1; Digit is Dig2), !.
 
-% Task 16 Найти минимальную цифру числа с помощью рекурсии вниз
+% Найти минимальную цифру числа с помощью рекурсии вниз
 minDigitDown(N, X) :- minDigitDown(N, 9, X).
 minDigitDown(0, X, X) :- !.
 minDigitDown(N, Digit, X) :- N1 is N div 10, Dig is N mod 10, Dig < Digit, !, minDigitDown(N1, Dig, X); 
