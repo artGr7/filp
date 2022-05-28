@@ -19,7 +19,7 @@ parent(baba_simpson, homer)
 является ли X дочерью Y. Построить предикат, daughter(X), который
 выводит дочь X. */
 
-daughter(X):- parent(Y, X), woman(X).
+daughter(X):- parent(X, Y), woman(Y), print(Y).
 daughter(X,Y):- parent(Y, X), woman(X).
 
 /*Построить предикат husband(X, Y), который проверяет,
@@ -27,14 +27,14 @@ daughter(X,Y):- parent(Y, X), woman(X).
 выводит мужа X. */
 
 husband(X,Y):- parent(X,Z), parent(Y,Z), woman(Y), man(X).
-husband(X):- parent(X,Z), parent(Y,Z), woman(Y), man(X).
+husband(X):- parent(X,Z), parent(Y,Z), woman(X), man(Y), print(Y).
 
 /*Построить предикат grand_son(X, Y), который проверяет,
 является ли X внуком Y. Построить предикат grand_sons(X), который
 выводит всех внуков X. */
 
 grand_son(X,Y):- parent(Z,X), parent(Y,Z), man(X).
-grand_son(X):- parent(Z,X), parent(Y,Z), man(X).
+grand_son(X):- parent(X,Z), parent(Z,Y), man(Y), print(Y).
 
 /* Построить предикат grand_ma_and_daughter(X,Y), который
 проверяет, являются ли X и Y бабушкой и внучкой или внучкой и
